@@ -17,5 +17,4 @@ export class ListarLibrosComponent implements OnInit {
   ngOnInit() {
     this.listaLibros = this.libroService.consultar();
   }
-
 }
