@@ -1,4 +1,4 @@
-export class Compra {
+export class Libro {
     id: number;
     titulo: string;
     categoria: string;
