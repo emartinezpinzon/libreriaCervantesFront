@@ -28,6 +28,11 @@
         </div>
       </div>
     </div>
+    <div *ngIf="!(listaCompra | async)?.length">
+      <div class="alert alert-danger" role="alert">
+        Aún no ha agregado ningún libro a la compra
+      </div>
+    </div>
   </div>
 
 </div>
