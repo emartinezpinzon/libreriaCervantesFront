@@ -1,4 +1,66 @@
 <div class="container">
+  <br />
+  <h2>Registrar libros</h2>
 
-    <p>crear-libros works!</p>
+  <form action="" method="post">
+    <div class="row">
+      <div class="mb-3">
+        <label for="titulo" class="form-label"
+          >Titulo de la obra</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="titulo"
+          placeholder="Cien años de soledad"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-6 mb-3">
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Selecciona la categoría</option>
+          <option value="1">Literatura</option>
+          <option value="2">Biografico</option>
+          <option value="3">Ciencias</option>
+          <option value="3">Educación</option>
+          <option value="3">Histórico</option>
+        </select>
+      </div>
+      <div class="col-xs-12 col-md-6 mb-3">
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Selecciona la distribución</option>
+          <option value="1">Nacional</option>
+          <option value="2">Internacional</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-6 mb-3">
+        <label for="cantidad" class="form-label"
+          >Libros disponibles</label
+        >
+        <input
+          type="number"
+          class="form-control"
+          id="cantidad"
+          placeholder="5"
+        />
+      </div>
+      <div class="col-xs-12 col-md-6 mb-3">
+        <label for="precio" class="form-label"
+          >Precio</label
+        >
+        <input
+          type="number"
+          class="form-control"
+          id="precio"
+          placeholder="100.000"
+        />
+      </div>
+    </div>
+    <div class="d-grid gap-2">
+      <button class="btn btn-secondary" type="button">Guardar</button>
+    </div>
+  </form>
 </div>
