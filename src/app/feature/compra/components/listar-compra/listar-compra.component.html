@@ -1,32 +1,33 @@
 <div class="container">
+  <br>
   <h2>Lista de compras</h2>
 
   <div class="d-grid gap-2">
-    <button class="btn btn-primary" type="button">Facturar compras</button>
+    <button class="btn btn-success" type="button">Facturar compras</button>
   </div>
 
   <br>
 
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Titulo</th>
-        <th scope="col">Cantidad</th>
-        <th scope="col">Disponibles</th>
-        <th scope="col">Fecha de entrega</th>
-        <th scope="col">Precio</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let compra of listaCompra | async">
-        <th scope="row">{{compra.id}}</th>
-        <td>{{compra.titulo}}</td>
-        <td>{{compra.cantidad}}</td>
-        <td>{{compra.disponibles}}</td>
-        <td>{{compra.fechaEntrega}}</td>
-        <td>{{compra.precio | currency}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-lg-4" *ngFor="let compra of listaCompra | async">
+      <div class="card">
+        <div class="card-body">
+          <h2>{{compra.titulo}}</h2>
+          <span class="badge bg-warning text-dark">{{compra.categoria}}</span>
+          <span class="badge bg-info text-dark">{{compra.distribucion}}</span>
+          <p>
+              <i>Agregaste {{compra.cantidad}} unidades</i>
+          </p>
+          <div class="text-end">
+            <span>Subtotal</span>
+              <h5>{{compra.precio*compra.cantidad | currency}}</h5>
+          </div>
+        </div>
+        <div class="card-footer text-center">
+          Lo tendrás en tus manos el {{compra.fechaEntrega | date:'d MMMM y'}}
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
