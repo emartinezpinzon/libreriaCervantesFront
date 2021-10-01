@@ -28,4 +28,9 @@
       </div>
     </div>
   </div>
+  <div *ngIf="!(listaLibros | async)?.length">
+    <div class="alert alert-danger" role="alert">
+      Aún no ha agregado ningún libro en el sistema
+    </div>
+  </div>
 </div>
