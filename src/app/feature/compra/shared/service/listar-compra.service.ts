@@ -9,19 +9,8 @@ export class ListarCompraService {
   constructor(protected http: HttpService) {}
 
   public consultar() {
-    const url = `${environment.endpoint}/compra`;
-
-    console.log("============================================================");
-    console.log(url);
-    console.log("============================================================");
-    
-    let x = this.http.doGet<Compra[]>(`${environment.endpoint}/compra`,
+    return this.http.doGet<Compra[]>(`${environment.endpoint}/compra`,
       this.http.optsName('listar compras'));
-
-    console.log(x);
-
-    return x;
-    
   }
 
   public guardar(compra: Compra) {
