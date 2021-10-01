@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  endpoint: '/promociones'
+  endpoint: 'http://localhost:8080/promociones'
 };
