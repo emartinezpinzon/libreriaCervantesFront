@@ -8,17 +8,23 @@ import { ProductoModule } from '@producto/producto.module';
 
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
+import { FacturaComponent } from './feature/factura/factura.component';
+import { CompraModule } from '@compra/compra.module';
+import { LibroModule } from '@libro/libro.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    FacturaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ProductoModule,
+    CompraModule,
+    LibroModule,
     CoreModule
   ],
   providers: [CookieService],

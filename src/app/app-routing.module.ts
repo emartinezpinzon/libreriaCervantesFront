@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [SecurityGuard]  },
   { path: 'producto', loadChildren: () => import('@producto/producto.module').then(mod => mod.ProductoModule)},
-  
+  { path: 'libro', loadChildren: () => import('@libro/libro.module').then(mod => mod.LibroModule)},
   { path: 'compra', loadChildren: () => import('./feature/compra/compra.module').then(mod => mod.CompraModule)}
 ];
 
