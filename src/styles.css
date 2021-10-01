@@ -1,1 +1,9 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+.badge {
+    margin: 0 0.5em 0 0;
+}
+
+.card {
+    margin: 0.75em 0;
+}
