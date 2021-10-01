@@ -9,7 +9,7 @@ export class ListarLibrosService {
     constructor(protected http: HttpService) {}
 
     public consultar() {
-        return this.http.doGet<Libro[]>(`${environment.endpoint}/libro`,
+        return this.http.doGet<Libro[]>(`${environment.endpoint}/libros`,
         this.http.optsName('listar libros'));
     }
 }
