@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { Compra } from "../../shared/model/compra";
-import { CompraService } from "../../shared/service/compra.service";
+import { ListarCompraService } from "@compra/shared/service/listar-compra.service";
 
 @Component({
     selector: 'app-listar-compra',
@@ -12,7 +12,7 @@ import { CompraService } from "../../shared/service/compra.service";
 export class ListarCompraComponent implements OnInit {
     public listaCompra: Observable<Compra[]>;
 
-    constructor(protected compraService: CompraService) {}
+    constructor(protected compraService: ListarCompraService) {}
 
     ngOnInit() {
         this.listaCompra = this.compraService.consultar();

@@ -13,26 +13,19 @@
         <th scope="col">#</th>
         <th scope="col">Titulo</th>
         <th scope="col">Cantidad</th>
+        <th scope="col">Disponibles</th>
+        <th scope="col">Fecha de entrega</th>
         <th scope="col">Precio</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
+      <tr *ngFor="let compra of listaCompra | async">
+        <th scope="row">{{compra.id}}</th>
+        <td>{{compra.titulo}}</td>
+        <td>{{compra.cantidad}}</td>
+        <td>{{compra.disponibles}}</td>
+        <td>{{compra.fechaEntrega}}</td>
+        <td>{{compra.precio | currency}}</td>
       </tr>
     </tbody>
   </table>
