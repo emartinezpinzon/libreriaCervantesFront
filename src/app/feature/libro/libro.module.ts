@@ -4,6 +4,7 @@ import { ListarLibrosComponent } from "@libro/components/listar-libros/listar-li
 import { CrearLibrosComponent } from "@libro/components/crear-libros/crear-libros.component";
 import { LibroRoutingModule } from "@libro/libro-routing.module";
 import { SharedModule } from "@shared/shared.module";
+import { LibroService } from "./shared/service/libro.service";
 
 
 @NgModule({
