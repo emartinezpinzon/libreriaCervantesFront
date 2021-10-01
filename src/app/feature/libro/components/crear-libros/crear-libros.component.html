@@ -2,23 +2,24 @@
   <br />
   <h2>Registrar libros</h2>
 
-  <form action="" method="post">
+  <form action="container" [formGroup]="libroForm" #registrarForm="ngForm">
     <div class="row">
       <div class="mb-3">
-        <label for="titulo" class="form-label"
-          >Titulo de la obra</label
-        >
+        <label for="titulo" class="form-label">Titulo de la obra</label>
         <input
+          validar
           type="text"
           class="form-control"
           id="titulo"
+          name="titulo"
+          formControlName="titulo"
           placeholder="Cien años de soledad"
         />
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12 col-md-6 mb-3">
-        <select class="form-select" aria-label="Default select example">
+        <select class="form-select" aria-label="Default select example" formControlName="categoria">
           <option selected>Selecciona la categoría</option>
           <option value="1">Literatura</option>
           <option value="2">Biografico</option>
@@ -28,7 +29,7 @@
         </select>
       </div>
       <div class="col-xs-12 col-md-6 mb-3">
-        <select class="form-select" aria-label="Default select example">
+        <select class="form-select" aria-label="Default select example" formControlName="distribucion">
           <option selected>Selecciona la distribución</option>
           <option value="1">Nacional</option>
           <option value="2">Internacional</option>
@@ -37,30 +38,39 @@
     </div>
     <div class="row">
       <div class="col-xs-12 col-md-6 mb-3">
-        <label for="cantidad" class="form-label"
-          >Libros disponibles</label
-        >
+        <label for="cantidad" class="form-label">Libros disponibles</label>
         <input
+          validar
           type="number"
           class="form-control"
           id="cantidad"
+          name="disponibles"
+          formControlName="disponibles"
           placeholder="5"
         />
       </div>
       <div class="col-xs-12 col-md-6 mb-3">
-        <label for="precio" class="form-label"
-          >Precio</label
-        >
+        <label for="precio" class="form-label">Precio</label>
         <input
+          validar
           type="number"
           class="form-control"
           id="precio"
+          name="precio"
+          formControlName="precio"
           placeholder="100.000"
         />
       </div>
     </div>
     <div class="d-grid gap-2">
-      <button class="btn btn-secondary" type="button">Guardar</button>
+      <button
+        [disabled]="!registrarForm.form.valid"
+        class="btn btn-secondary"
+        type="submit"
+        (click)="onSubmit()"
+      >
+        Guardar
+      </button>
     </div>
   </form>
 </div>
