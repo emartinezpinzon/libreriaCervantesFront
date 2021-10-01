@@ -5,6 +5,7 @@ import { CrearLibrosComponent } from "@libro/components/crear-libros/crear-libro
 import { LibroRoutingModule } from "@libro/libro-routing.module";
 import { SharedModule } from "@shared/shared.module";
 import { LibroService } from "./shared/service/libro.service";
+import { ListarLibrosService } from "./shared/service/listar-libros.service";
 
 
 @NgModule({
@@ -17,6 +18,6 @@ import { LibroService } from "./shared/service/libro.service";
       LibroRoutingModule,
       SharedModule
   ],
-  providers: [LibroService]
+  providers: [LibroService, ListarLibrosService]
 })
 export class LibroModule {}
