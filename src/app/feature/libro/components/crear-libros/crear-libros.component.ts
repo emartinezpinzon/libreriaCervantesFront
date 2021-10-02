@@ -4,9 +4,12 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Libro } from "@libro/shared/model/libro";
 import { delay, tap } from "rxjs/operators";
 import { LibroService } from "@libro/shared/service/libro.service";
+import { HttpErrorResponse } from "@angular/common/http";
 
 const CANTIDAD_MINIMA_LIBROS = 10;
 const PRECIO_MINIMO_LIBROS = 999;
+
+const REGISTRO_EXITOSO = "El libro ha sido registrado con exito";
 
 @Component({
   selector: "app-crear-libros",
@@ -32,10 +35,11 @@ export class CrearLibrosComponent implements OnInit {
       )
       .subscribe(
         (data) => {
+          alert(REGISTRO_EXITOSO);
           console.log(data);
         },
-        (error) => {
-          console.log(error);
+        (error: HttpErrorResponse) => {
+          alert(error.error.mensaje);
         }
       );
   }
