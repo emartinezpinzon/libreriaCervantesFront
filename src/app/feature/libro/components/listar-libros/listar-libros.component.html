@@ -6,13 +6,13 @@
     <div class="card">
       <div class="card-body">
         <h2>{{ libro.titulo }}</h2>
-        <span class="badge bg-warning text-dark">Literatura</span>
-        <span class="badge bg-info text-dark">Nacional</span>
+        <span class="badge bg-warning text-dark">{{ libro.categoria }}</span>
+        <span class="badge bg-info text-dark">{{ libro.distribucion }}</span>
         <p>
-          <i>Quedan 5 unidades disponibles</i>
+          <i>Quedan {{ libro.disponibles }} unidades disponibles</i>
         </p>
         <div class="text-end">
-          <h5>$45.000</h5>
+          <h5>{{ libro.precio | currency }}</h5>
         </div>
         <form action="" method="post">
           <div class="input-group mb-3">
