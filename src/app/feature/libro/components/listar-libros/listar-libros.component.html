@@ -14,7 +14,7 @@
         <div class="text-end">
           <h5>{{ libro.precio | currency }}</h5>
         </div>
-        <app-crear-compra></app-crear-compra>
+        <app-crear-compra [libroId] = libro.id></app-crear-compra>
       </div>
     </div>
   </div>
