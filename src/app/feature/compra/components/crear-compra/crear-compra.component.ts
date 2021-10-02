@@ -1,4 +1,12 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Compra } from '@compra/shared/model/compra';
+import { CompraService } from '@compra/shared/service/compra.service';
+import { delay, tap } from 'rxjs/operators';
+
+const CANTIDAD_MINIMA_COMPRA = 1;
 
 @Component({
   selector: 'app-crear-compra',
@@ -10,10 +18,40 @@ export class CrearCompraComponent implements OnInit {
   @Input()
   libroId: number;
 
-  constructor() {
+  compraForm: FormGroup;
+  compra = {} as Compra;
+
+  constructor(protected compraService: CompraService, private router: Router) {
   }
 
   ngOnInit() {
+    this.construirFormularioCompra();
   }
 
+  onSubmit() {
+    this.compra = this.compraForm.value;
+    this.compra.libroId = this.libroId;
+
+    this.compraService.guardar(this.compra)
+    .pipe(
+      tap(() => this.router.navigate(["compra"])),
+      delay(500)
+    )
+    .subscribe(
+      (data) => {
+        alert("Todo fino");
+        console.log(data);
+        
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.error.mensaje);
+      }
+    );
+  }
+
+  private construirFormularioCompra() {
+    this.compraForm = new FormGroup({
+      cantidad: new FormControl("", Validators.min(CANTIDAD_MINIMA_COMPRA))
+    })
+  }
 }

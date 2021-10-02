@@ -1,16 +1,15 @@
-<p>
-  ID del libro {{ libroId }}
-</p>
-<form action="">
+<form action="" [formGroup]="compraForm" #registrarForm="ngForm">
   <div class="input-group mb-3">
     <input
+      validar
       type="number"
       class="form-control"
       placeholder="Cantidad"
+      formControlName="cantidad"
       aria-label="Recipient's username"
       aria-describedby="button-addon2"
     />
-    <button class="btn btn-secondary" type="button" id="button-addon2">
+    <button [disabled]="!registrarForm.form.valid" class="btn btn-secondary" type="button" id="button-addon2" (click)="onSubmit()">
       Añadir
     </button>
   </div>
