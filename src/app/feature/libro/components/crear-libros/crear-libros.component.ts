@@ -1,7 +1,7 @@
 import { Router } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { Libro } from "@libro/shared/model/libro";
+
 import { delay, tap } from "rxjs/operators";
 import { LibroService } from "@libro/shared/service/libro.service";
 import { HttpErrorResponse } from "@angular/common/http";
@@ -18,7 +18,6 @@ const REGISTRO_EXITOSO = "El libro ha sido registrado con exito";
 })
 export class CrearLibrosComponent implements OnInit {
   libroForm: FormGroup;
-  libro = {} as Libro;
 
   constructor(protected libroService: LibroService, private router: Router) {}
 
@@ -50,7 +49,7 @@ export class CrearLibrosComponent implements OnInit {
       categoria: new FormControl(""),
       distribucion: new FormControl(""),
       disponibles: new FormControl("", Validators.min(CANTIDAD_MINIMA_LIBROS)),
-      precio: new FormControl("", Validators.min(PRECIO_MINIMO_LIBROS)),
+      precio: new FormControl("", Validators.min(PRECIO_MINIMO_LIBROS))
     });
   }
 }
