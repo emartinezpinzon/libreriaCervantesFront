@@ -16,7 +16,7 @@ export class LibroService {
 
   public guardar(libro: Libro) {
     return this.http.doPost<Libro, boolean>(
-      `${environment.endpoint}/libro`,
+      `${environment.endpoint}/libros`,
       libro,
       this.http.optsName("crear/actualizar libro")
     );
