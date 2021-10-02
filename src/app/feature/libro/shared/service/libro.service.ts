@@ -9,7 +9,7 @@ export class LibroService {
 
   public consultar() {
     return this.http.doGet<Libro[]>(
-      `${environment.endpoint}/libro`,
+      `${environment.endpoint}/libros`,
       this.http.optsName("consultar libros")
     );
   }
