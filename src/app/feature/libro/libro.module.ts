@@ -5,9 +5,15 @@ import { CrearLibrosComponent } from "@libro/components/crear-libros/crear-libro
 import { LibroRoutingModule } from "@libro/libro-routing.module";
 import { SharedModule } from "@shared/shared.module";
 import { LibroService } from "./shared/service/libro.service";
+import { CrearCompraComponent } from "@compra/components/crear-compra/crear-compra.component";
 
 @NgModule({
-  declarations: [LibroComponent, ListarLibrosComponent, CrearLibrosComponent],
+  declarations: [
+    LibroComponent,
+    ListarLibrosComponent,
+    CrearLibrosComponent,
+    CrearCompraComponent,
+  ],
   imports: [LibroRoutingModule, SharedModule],
   providers: [LibroService],
 })

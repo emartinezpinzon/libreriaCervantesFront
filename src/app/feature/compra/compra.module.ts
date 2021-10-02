@@ -6,7 +6,6 @@ import { CompraService } from './shared/service/compra.service';
 import { CompraComponent } from './components/compra/compra.component';
 import { ListarCompraComponent } from './components/listar-compra/listar-compra.component';
 
-
 @NgModule({
   declarations: [
     CompraComponent,
