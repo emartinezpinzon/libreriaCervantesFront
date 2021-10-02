@@ -19,28 +19,30 @@
     </div>
     <div class="row">
       <div class="col-xs-12 col-md-6 mb-3">
+        <label for="categoria" class="form-label">Categoría</label>
         <select
+          id="categoria"
           class="form-select"
           aria-label="Default select example"
           formControlName="categoria"
         >
-          <option selected>Selecciona la categoría</option>
-          <option value="1">Literatura</option>
-          <option value="2">Biografico</option>
-          <option value="3">Ciencias</option>
-          <option value="3">Educación</option>
-          <option value="3">Histórico</option>
+          <option value="Literatura">Literatura</option>
+          <option value="Biografico">Biografico</option>
+          <option value="Ciencias">Ciencias</option>
+          <option value="Educación">Educación</option>
+          <option value="Histórico">Histórico</option>
         </select>
       </div>
       <div class="col-xs-12 col-md-6 mb-3">
+        <label for="distribucion" class="form-label">Distribución</label>
         <select
+          id="distribucion"
           class="form-select"
           aria-label="Default select example"
           formControlName="distribucion"
         >
-          <option selected>Selecciona la distribución</option>
-          <option value="1">Nacional</option>
-          <option value="2">Internacional</option>
+          <option value="Nacional">Nacional</option>
+          <option value="Internacional">Internacional</option>
         </select>
       </div>
     </div>
@@ -73,7 +75,7 @@
     <div class="d-grid gap-2">
       <button
         [disabled]="!registrarForm.form.valid"
-        class="btn btn-secondary"
+        class="btn btn-dark"
         type="submit"
         (click)="onSubmit()"
       >
