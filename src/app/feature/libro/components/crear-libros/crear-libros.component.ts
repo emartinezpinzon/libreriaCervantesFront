@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Libro } from '@libro/shared/model/libro';
 import { delay, tap } from 'rxjs/operators';
-import { LibroService } from '@libro/shared/service/libro.service';
+import { CrearLibrosService } from '@libro/shared/service/crear-libros.service';
 
 const CANTIDAD_MINIMA_LIBROS = 10;
 const PRECIO_MINIMO_LIBROS = 999;
@@ -17,7 +17,7 @@ export class CrearLibrosComponent implements OnInit {
   libroForm: FormGroup;
   libro = {} as Libro;
 
-  constructor(protected libroService: LibroService, private router: Router) { }
+  constructor(protected libroService: CrearLibrosService, private router: Router) { }
 
   ngOnInit(): void {
     this.construirFormularioLibro();

@@ -9,7 +9,10 @@ export class CrearLibrosService {
     constructor(protected http: HttpService) { }
 
     public guardar(libro: Libro) {
-        return this.http.doPost<Libro, boolean>(`${environment.endpoint}/libros`, libro,
-                                                this.http.optsName('crear/actualizar libro'));
+        return this.http.doPost<Libro, boolean>(
+            `${environment.endpoint}/libros`, 
+            libro,
+            this.http.optsName('crear/actualizar libro')
+        );
     }
 }
