@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  endpoint: 'http://localhost:8080/promociones'
+  endpoint: 'http://localhost:8080/promociones',
+  trm: 'link trm here'
 };
 
 /*
