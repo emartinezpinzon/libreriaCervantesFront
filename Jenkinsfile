@@ -24,7 +24,7 @@ pipeline {
                     submoduleCfg: [], 
                     userRemoteConfigs: [[
                         credentialsId: 'GitHub_emartinezpinzon', 
-                        url:'https://github.com/emartinezpinzon/libreriaCervantesFront.git'
+                        url:'https://github.com/emartinezpinzon/libreriaCervantesFront'
                     ]]
                 ])
             }
@@ -36,9 +36,15 @@ pipeline {
             }
         }
 
+        stage('Build') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+
         stage('Tests') {
             steps {
-                sh 'npm run test'
+                sh 'npm test'
             }
         }
 
@@ -49,12 +55,6 @@ pipeline {
                 withSonarQubeEnv('Sonar') {
                     sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner" 
                 }
-            }
-        }
-
-        stage('Build'){
-            steps {
-                sh 'ng build --prod '
             }
         }
     }
@@ -69,6 +69,13 @@ pipeline {
         failure {
             echo 'This will run only if failed'
             mail (to: 'emanuel.martinez@ceiba.com.co', subject: "Failed Pipeline:${currentBuild.fullDisplayName}",body: "Something is wrong with ${env.BUILD_URL}") 
+        }
+        unstable {
+            echo 'This will run only if the run was marked as unstable'
+        }
+        changed {
+            echo 'This will run only if the state of the Pipeline has changed'
+            echo 'For example, if the Pipeline was previously failing but is now successful'
         }
     }
 }
