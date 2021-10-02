@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Compra } from '../model/compra';
 
 @Injectable()
-export class ListarCompraService {
+export class CompraService {
 
   constructor(protected http: HttpService) {}
 

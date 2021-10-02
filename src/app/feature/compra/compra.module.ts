@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 
 import { CompraRoutingModule } from './compra-routing.module';
-import { ListarCompraComponent } from './components/listar-compra/listar-compra.component';
 import { SharedModule } from '@shared/shared.module';
-import { ListarCompraService } from './shared/service/listar-compra.service';
+import { CompraService } from './shared/service/compra.service';
 import { CompraComponent } from './components/compra/compra.component';
+import { ListarCompraComponent } from './components/listar-compra/listar-compra.component';
 
 
 @NgModule({
@@ -16,6 +16,6 @@ import { CompraComponent } from './components/compra/compra.component';
     CompraRoutingModule,
     SharedModule
   ],
-  providers: [ListarCompraService]
+  providers: [CompraService]
 })
 export class CompraModule { }
