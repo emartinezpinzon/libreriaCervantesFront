@@ -6,7 +6,7 @@ import { delay, tap } from "rxjs/operators";
 import { LibroService } from "@libro/shared/service/libro.service";
 import { HttpErrorResponse } from "@angular/common/http";
 
-const CANTIDAD_MINIMA_LIBROS = 10;
+const CANTIDAD_MINIMA_LIBROS = 0;
 const PRECIO_MINIMO_LIBROS = 999;
 
 const REGISTRO_EXITOSO = "El libro ha sido registrado con exito";
