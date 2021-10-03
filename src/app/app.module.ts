@@ -10,6 +10,7 @@ import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { CompraModule } from '@compra/compra.module';
 import { LibroModule } from '@libro/libro.module';
+import { FacturaModule } from '@factura/factura.module';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { LibroModule } from '@libro/libro.module';
     ProductoModule,
     CompraModule,
     LibroModule,
+    FacturaModule,
     CoreModule
   ],
   providers: [CookieService],
