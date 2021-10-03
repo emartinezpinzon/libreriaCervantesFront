@@ -23,6 +23,9 @@
       "@compra/*": [
         "src/app/feature/compra/*"
       ],
+      "@factura/*": [
+        "src/app/feature/factura/*"
+      ],
       "@shared/*": [
         "src/app/shared/*"
       ]
