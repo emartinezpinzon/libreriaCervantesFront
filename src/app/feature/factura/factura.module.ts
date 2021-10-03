@@ -1,11 +1,19 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FacturaComponent } from '@factura/components/factura/factura.component';
+import { VerFacturaComponent } from '@factura/components/ver-factura/ver-factura.component';
+import { SharedModule } from '@shared/shared.module';
+import { FacturaRoutingModule } from '@factura/factura-routing.module';
+import { FacturaService } from '@factura/shared/service/factura.service';
 
 @NgModule({
-  imports: [
-    CommonModule
+  declarations: [
+    FacturaComponent,
+    VerFacturaComponent
   ],
-  declarations: [FacturaComponent]
+  imports: [
+    SharedModule,
+    FacturaRoutingModule
+  ],
+  providers: [FacturaService]
 })
 export class FacturaModule { }
