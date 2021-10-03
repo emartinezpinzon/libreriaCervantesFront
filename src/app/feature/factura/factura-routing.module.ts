@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { FacturaComponent } from "@factura/components/factura/factura.component"
-import { VerFacturaComponent } from "@factura/components/ver-factura/ver-factura.component";
+import { FacturaComponent } from "./components/factura/factura.component";
+import { VerFacturaComponent } from "./components/ver-factura/ver-factura.component";
 
 const routes: Routes = [
   {
@@ -17,7 +17,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule]
 })
-export class FacturaRoutingModule {}
+export class FacturaRoutingModule { }

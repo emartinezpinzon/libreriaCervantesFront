@@ -12,9 +12,8 @@ const routes: Routes = [
   { path: 'producto', loadChildren: () => import('@producto/producto.module').then(mod => mod.ProductoModule)},
   { path: 'libro', loadChildren: () => import('@libro/libro.module').then(mod => mod.LibroModule)},
   { path: 'crear-libro', component: CrearLibrosComponent},
-  { path: 'compra', loadChildren: () => import('./feature/compra/compra.module').then(mod => mod.CompraModule)},
-  { path: 'factura', component: FacturaComponent}
-
+  { path: 'compra', loadChildren: () => import('@compra/compra.module').then(mod => mod.CompraModule)},
+  { path: 'factura', loadChildren: () => import('@factura/factura.module').then(mod => mod.FacturaModule)}
 ];
 
 @NgModule({

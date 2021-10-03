@@ -22,6 +22,7 @@ import { FacturaModule } from '@factura/factura.module';
     BrowserModule,
     AppRoutingModule,
     ProductoModule,
+    FacturaModule,
     CompraModule,
     LibroModule,
     FacturaModule,
