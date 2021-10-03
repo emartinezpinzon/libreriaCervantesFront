@@ -9,7 +9,7 @@ export class FacturaService {
     constructor(protected http: HttpService) {}
 
     public consultarById(id: number) {
-        return this.http.doGet<Factura>(`${environment.endpoint}/compra/${id}`,
+        return this.http.doGet<Factura>(`${environment.endpoint}/factura/${id}`,
                                                     this.http.optsName('listar compras'));
     }
 

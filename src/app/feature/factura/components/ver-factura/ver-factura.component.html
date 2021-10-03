@@ -1,7 +1,7 @@
 <div class="card">
-  <h2 class="card-header">Factura de compra #</h2>
+  <h2 class="card-header">Factura de compra #{{ factura.id }} </h2>
   <div class="card-body">
-    <h5 class="card-title">Valor total de la compra: </h5>
-    <p class="card-text">Fecha de la compra: </p>
+    <h5 class="card-title">Valor total de la compra: {{ factura.precioFinal | currency }}</h5>
+    <p class="card-text">Fecha de la compra: {{ factura.fechaCompra | date: "d MMMM y"}} </p>
   </div>
 </div>

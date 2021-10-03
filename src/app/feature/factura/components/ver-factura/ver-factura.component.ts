@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Factura } from '@factura/shared/model/factura';
 import { FacturaService } from '@factura/shared/service/factura.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-ver-factura',
@@ -9,7 +8,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./ver-factura.component.css']
 })
 export class VerFacturaComponent implements OnInit {
-  public factura: Observable<Factura>;
+  factura = {} as Factura;
 
   constructor(protected facturaService: FacturaService) { }
 
@@ -17,7 +16,13 @@ export class VerFacturaComponent implements OnInit {
     let x = localStorage.getItem("facturaId");
     let facturaId = +x;
 
-    this.factura = this.facturaService.consultarById(facturaId);
+    this.facturaService.consultarById(facturaId).subscribe(
+      (data) => {
+        this.factura = data;
+        console.log(this.factura);
+        
+      }
+    );
   }
 
 }
