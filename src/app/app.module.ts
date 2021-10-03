@@ -25,6 +25,7 @@ import { FacturaModule } from '@factura/factura.module';
     FacturaModule,
     CompraModule,
     LibroModule,
+    FacturaModule,
     CoreModule
   ],
   providers: [CookieService],

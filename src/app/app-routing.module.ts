@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SecurityGuard } from '@core/guard/security.guard';
+import { FacturaComponent } from '@factura/components/factura/factura.component';
 import { HomeComponent } from '@home/home.component';
 import { CrearLibrosComponent } from '@libro/components/crear-libros/crear-libros.component';
 
