@@ -8,6 +8,8 @@ import { delay, tap } from 'rxjs/operators';
 
 const CANTIDAD_MINIMA_COMPRA = 1;
 
+const REGISTRO_EXITOSO = "El libro ha sido agregado a la compra con exito";
+
 @Component({
   selector: 'app-crear-compra',
   templateUrl: './crear-compra.component.html',
@@ -39,7 +41,7 @@ export class CrearCompraComponent implements OnInit {
     )
     .subscribe(
       (data) => {
-        alert("Todo fino");
+        alert(REGISTRO_EXITOSO);
         console.log(data);
         
       },
