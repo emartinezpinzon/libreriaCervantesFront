@@ -32,7 +32,7 @@ export class CrearFacturaComponent implements OnInit {
       .subscribe(
         (data) => {
           alert(REGISTRO_EXITOSO);
-          localStorage.setItem("facturaId", data["valor"]);
+          localStorage.setItem('facturaId', data['valor']);
         },
         (error: HttpErrorResponse) => {
           alert(error.error.mensaje);

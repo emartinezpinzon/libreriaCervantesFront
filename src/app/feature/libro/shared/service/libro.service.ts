@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { HttpService } from "@core/services/http.service";
-import { environment } from "src/environments/environment";
-import { Libro } from "@libro/shared/model/libro";
+import { Injectable } from '@angular/core';
+import { HttpService } from '@core/services/http.service';
+import { environment } from 'src/environments/environment';
+import { Libro } from '@libro/shared/model/libro';
 
 @Injectable()
 export class LibroService {
@@ -10,7 +10,7 @@ export class LibroService {
   public consultar() {
     return this.http.doGet<Libro[]>(
       `${environment.endpoint}/libros`,
-      this.http.optsName("consultar libros")
+      this.http.optsName('consultar libros')
     );
   }
 
@@ -18,7 +18,7 @@ export class LibroService {
     return this.http.doPost<Libro, boolean>(
       `${environment.endpoint}/libros`,
       libro,
-      this.http.optsName("crear/actualizar libro")
+      this.http.optsName('crear/actualizar libro')
     );
   }
 }
