@@ -42,7 +42,7 @@ describe('CrearLibrosComponent', () => {
     expect(botonGuardar.disabled).toBeTrue();
   });
 
-  it('Debería crear libro', () => {
+  it('Deberia crear libro', () => {
     const spyRedirect = spyOn(component, 'onSubmit').and.callThrough();
     const botonGuardar = fixture.debugElement.nativeElement.querySelector('#guardar');
     botonGuardar.click();

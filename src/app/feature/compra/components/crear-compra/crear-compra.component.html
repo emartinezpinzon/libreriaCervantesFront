@@ -7,9 +7,9 @@
       placeholder="Cantidad"
       formControlName="cantidad"
       aria-label="Recipient's username"
-      aria-describedby="button-addon2"
+      aria-describedby="compra"
     />
-    <button [disabled]="!registrarForm.form.valid" class="btn btn-secondary" type="button" id="button-addon2" (click)="onSubmit()">
+    <button id="compra" [disabled]="!registrarForm.form.valid" class="btn btn-secondary" type="button" (click)="onSubmit()">
       Añadir
     </button>
   </div>
