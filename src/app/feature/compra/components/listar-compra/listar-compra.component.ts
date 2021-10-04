@@ -5,8 +5,7 @@ import { CompraService } from "@compra/shared/service/compra.service";
 
 @Component({
     selector: 'app-listar-compra',
-    templateUrl: './listar-compra.component.html',
-    styleUrls: ['./listar-compra.component.css']
+    templateUrl: './listar-compra.component.html'
 })
 
 export class ListarCompraComponent implements OnInit {

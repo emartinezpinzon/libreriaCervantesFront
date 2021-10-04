@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-compra',
-  templateUrl: './compra.component.html',
-  styleUrls: ['./compra.component.css']
+  templateUrl: './compra.component.html'
 })
 export class CompraComponent implements OnInit {
 

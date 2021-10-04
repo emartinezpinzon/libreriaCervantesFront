@@ -12,8 +12,7 @@ const REGISTRO_EXITOSO = "El libro ha sido agregado a la compra con exito";
 
 @Component({
   selector: 'app-crear-compra',
-  templateUrl: './crear-compra.component.html',
-  styleUrls: ['./crear-compra.component.css']
+  templateUrl: './crear-compra.component.html'
 })
 export class CrearCompraComponent implements OnInit {
 
