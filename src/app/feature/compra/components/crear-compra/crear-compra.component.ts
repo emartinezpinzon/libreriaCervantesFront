@@ -7,8 +7,9 @@ import { CompraService } from '@compra/shared/service/compra.service';
 import { delay, tap } from 'rxjs/operators';
 
 const CANTIDAD_MINIMA_COMPRA = 1;
+const ESPERA_GUARDADO = 500;
 
-const REGISTRO_EXITOSO = "El libro ha sido agregado a la compra con exito";
+const REGISTRO_EXITOSO = 'El libro ha sido agregado a la compra con exito';
 
 @Component({
   selector: 'app-crear-compra',
@@ -35,14 +36,12 @@ export class CrearCompraComponent implements OnInit {
 
     this.compraService.guardar(this.compra)
     .pipe(
-      tap(() => this.router.navigate(["compra"])),
-      delay(500)
+      tap(() => this.router.navigate(['compra'])),
+      delay(ESPERA_GUARDADO)
     )
     .subscribe(
-      (data) => {
+      () => {
         alert(REGISTRO_EXITOSO);
-        console.log(data);
-        
       },
       (error: HttpErrorResponse) => {
         alert(error.error.mensaje);
@@ -52,7 +51,7 @@ export class CrearCompraComponent implements OnInit {
 
   private construirFormularioCompra() {
     this.compraForm = new FormGroup({
-      cantidad: new FormControl("", Validators.min(CANTIDAD_MINIMA_COMPRA))
+      cantidad: new FormControl(Validators.min(CANTIDAD_MINIMA_COMPRA))
     })
   }
 }
