@@ -1,10 +1,6 @@
 pipeline {
     agent {
-        label 'Slave_Induccion'
-    }
-
-     triggers {
-        pollSCM('* * * * *')
+        label 'Slave4_Induccion'
     }
 
     tools {
@@ -44,7 +40,7 @@ pipeline {
 
         stage('Tests') {
             steps {
-                sh 'npm run test'
+                sh 'npm test'
             }
         }
 
@@ -53,7 +49,7 @@ pipeline {
             steps{
                 echo '------------>Análisis de código estático<------------'
                 withSonarQubeEnv('Sonar') {
-                    sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner" 
+                    sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=sonar-project.properties" 
                 }
             }
         }
