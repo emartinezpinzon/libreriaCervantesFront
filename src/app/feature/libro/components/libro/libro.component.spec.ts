@@ -19,8 +19,13 @@ describe('LibroComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Debe crearse el componente', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Debe existir el boton crear libro', () => {
+    const MSG = fixture.nativeElement.querySelector('#crear_libro');
+    expect(MSG.innerText).toEqual('Crear libro');
   });
 
   afterEach(() => {
