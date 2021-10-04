@@ -1,15 +1,15 @@
-import { HttpResponse } from "@angular/common/http";
+import { HttpResponse } from '@angular/common/http';
 import {
   HttpClientTestingModule,
   HttpTestingController,
-} from "@angular/common/http/testing";
-import { TestBed } from "@angular/core/testing";
-import { HttpService } from "@core/services/http.service";
-import { environment } from "src/environments/environment";
-import { Compra } from "../model/compra";
-import { CompraService } from "./compra.service";
+} from '@angular/common/http/testing';
+import { TestBed } from '@angular/core/testing';
+import { HttpService } from '@core/services/http.service';
+import { environment } from 'src/environments/environment';
+import { Compra } from '../model/compra';
+import { CompraService } from './compra.service';
 
-describe("CompraService", () => {
+describe('CompraService', () => {
   let compraServicio: CompraService;
   let compraServicioMock: HttpTestingController;
 
@@ -22,11 +22,11 @@ describe("CompraService", () => {
     compraServicio = TestBed.inject(CompraService);
   });
 
-  it("Debe crear el servicio", () => {
+  it('Debe crear el servicio', () => {
     expect(compraServicio).toBeTruthy();
   });
 
-  it("Debe crear una compra", () => {
+  it('Debe crear una compra', () => {
     let dummyCompra: Compra = new Compra(
       1,
       1,
@@ -50,7 +50,7 @@ describe("CompraService", () => {
     request.event(new HttpResponse<boolean>({ body: true }));
   });
 
-  it("Debe consultar las compras registradas", () => {
+  it('Debe consultar las compras registradas', () => {
     let dummyCompras: Compra[] = [
       new Compra(
         1,
@@ -73,19 +73,19 @@ describe("CompraService", () => {
         "Internacional",
         2,
         10000
-      )
+      ),
     ];
     let cantidadCompras = dummyCompras.length;
 
-    compraServicio.consultar().subscribe(compras => {
-        expect(compras.length).toBe(cantidadCompras);
-        expect(compras).toEqual(dummyCompras);
+    compraServicio.consultar().subscribe((compras) => {
+      expect(compras.length).toBe(cantidadCompras);
+      expect(compras).toEqual(dummyCompras);
     });
 
     const request = compraServicioMock.expectOne(
-        `${environment.endpoint}/compra`
-      );
-      expect(request.request.method).toBe("GET");
-      request.flush(dummyCompras);
+      `${environment.endpoint}/compra`
+    );
+    expect(request.request.method).toBe("GET");
+    request.flush(dummyCompras);
   });
 });

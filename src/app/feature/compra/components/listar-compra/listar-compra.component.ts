@@ -1,7 +1,7 @@
-import { Component, OnInit } from "@angular/core";
-import { Observable } from "rxjs";
-import { Compra } from "../../shared/model/compra";
-import { CompraService } from "@compra/shared/service/compra.service";
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Compra } from '../../shared/model/compra';
+import { CompraService } from '@compra/shared/service/compra.service';
 
 @Component({
     selector: 'app-listar-compra',
