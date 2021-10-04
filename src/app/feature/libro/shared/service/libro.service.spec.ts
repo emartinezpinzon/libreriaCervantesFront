@@ -10,8 +10,6 @@ describe('LibroService', () => {
     let libroServicio: LibroService;
     let libroServicioMock: HttpTestingController;
 
-    let dummyLibro: Libro = new Libro(1, "Ficciones", "Literatura", "Nacional", 3, 10);
-
     beforeEach(() => {
         const injector = TestBed.configureTestingModule({
             imports: [HttpClientTestingModule],
@@ -26,6 +24,8 @@ describe('LibroService', () => {
     });
 
     it('Debe crear un libro', () => {
+        let dummyLibro: Libro = new Libro(1, "Ficciones", "Literatura", "Nacional", 3, 10);
+
         libroServicio.guardar(dummyLibro).subscribe(
             (respuesta) => {
                 expect(respuesta).toEqual(true);
@@ -33,9 +33,21 @@ describe('LibroService', () => {
         );
 
         const req = libroServicioMock.expectOne(`${environment.endpoint}/libros`);
-
         expect(req.request.method).toBe('POST');
-
         req.event(new HttpResponse<boolean>({body: true}));
+    });
+
+    it('Debe consultar los libros creados', () => {
+        let cantidadLibros = 1;
+        let dummyLibros: Libro[] = [new Libro(1, "Ficciones", "Literatura", "Nacional", 3, 10)];
+
+        libroServicio.consultar().subscribe((libros) => {
+            expect(libros.length).toBe(cantidadLibros);
+            expect(libros).toEqual(dummyLibros);
+        });
+
+        const request = libroServicioMock.expectOne(`${environment.endpoint}/libros`);
+        expect(request.request.method).toBe('GET');
+        request.flush(dummyLibros);
     });
 });
