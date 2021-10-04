@@ -4,8 +4,7 @@ import { FacturaService } from '@factura/shared/service/factura.service';
 
 @Component({
   selector: 'app-ver-factura',
-  templateUrl: './ver-factura.component.html',
-  styleUrls: ['./ver-factura.component.css']
+  templateUrl: './ver-factura.component.html'
 })
 export class VerFacturaComponent implements OnInit {
   public factura = {} as Factura;

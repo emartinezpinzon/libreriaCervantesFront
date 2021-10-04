@@ -9,8 +9,7 @@ const REGISTRO_EXITOSO = "La factura se ha generado con éxito";
 
 @Component({
   selector: 'app-crear-factura',
-  templateUrl: './crear-factura.component.html',
-  styleUrls: ['./crear-factura.component.css']
+  templateUrl: './crear-factura.component.html'
 })
 export class CrearFacturaComponent implements OnInit {
 
