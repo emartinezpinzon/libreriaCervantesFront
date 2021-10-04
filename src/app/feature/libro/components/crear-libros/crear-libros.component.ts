@@ -44,11 +44,11 @@ export class CrearLibrosComponent implements OnInit {
 
   private construirFormularioLibro() {
     this.libroForm = new FormGroup({
-      titulo: new FormControl(Validators.required),
-      categoria: new FormControl(),
-      distribucion: new FormControl(),
-      disponibles: new FormControl(Validators.min(CANTIDAD_MINIMA_LIBROS)),
-      precio: new FormControl(Validators.min(PRECIO_MINIMO_LIBROS))
+      titulo: new FormControl('', Validators.required),
+      categoria: new FormControl(''),
+      distribucion: new FormControl(''),
+      disponibles: new FormControl('', Validators.min(CANTIDAD_MINIMA_LIBROS)),
+      precio: new FormControl('', Validators.min(PRECIO_MINIMO_LIBROS))
     });
   }
 }
