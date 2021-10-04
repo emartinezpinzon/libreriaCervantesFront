@@ -4,7 +4,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
-import { Libro } from '@libro/shared/model/libro';
+//import { Libro } from '@libro/shared/model/libro';
 import { LibroService } from '@libro/shared/service/libro.service';
 
 import { CrearLibrosComponent } from './crear-libros.component';
@@ -37,30 +37,21 @@ describe('CrearLibrosComponent', () => {
     libroService = TestBed.inject(LibroService);
   });
 
-  it('should create', () => {
+  it('Debe crearse el componente', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Debería ser formulario invalido al estar vacío', () => {
-    expect(component.libroForm.valid).toBeFalsy;
+  it('Deberia tener el boton de guardar deshabilitado al ser formulario invalido', () => {
+    const botonGuardar = fixture.debugElement.nativeElement.querySelector('#guardar');
+    expect(botonGuardar.disabled).toBeTrue();
   });
 
   it('Debería crear libro', () => {
-    // Arrange
-    let nuevoLibro = {} as Libro;
-
-    nuevoLibro.titulo = "1984";
-    nuevoLibro.categoria = "Literatura";
-    nuevoLibro.distribucion = "Nacional";
-    nuevoLibro.disponibles = 3;
-    nuevoLibro.precio = 10000;
-
-    // Act
-    const spyRedirect = spyOn(libroService, 'guardar').and.callThrough();
+    const spyRedirect = spyOn(component, 'onSubmit').and.callThrough();
+    const botonGuardar = fixture.debugElement.nativeElement.querySelector('#guardar');
+    botonGuardar.click();
     fixture.detectChanges();
-    libroService.guardar(nuevoLibro);
-
-    // Assert
+    component.onSubmit();
     expect(spyRedirect).toHaveBeenCalled();
   });
 
