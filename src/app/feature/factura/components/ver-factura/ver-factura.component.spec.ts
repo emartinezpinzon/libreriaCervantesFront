@@ -14,7 +14,7 @@ describe('VerFacturaComponent', () => {
   let fixture: ComponentFixture<VerFacturaComponent>;
 
   let facturaServicioStub: Partial<FacturaService>;
-  let dummyFactura: Factura = new Factura(1, "2021-10-03", 150000);
+  let dummyFactura: Factura = new Factura(1, '2021-10-03', 150000);
 
   facturaServicioStub = {
     consultarById: () => {

@@ -1,12 +1,12 @@
 /* tslint:disable:no-unused-variable */
-import { CommonModule } from "@angular/common";
-import { HttpClientModule } from "@angular/common/http";
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { RouterTestingModule } from "@angular/router/testing";
-import { HttpService } from "@core/services/http.service";
-import { FacturaService } from "@factura/shared/service/factura.service";
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpService } from '@core/services/http.service';
+import { FacturaService } from '@factura/shared/service/factura.service';
 
-import { CrearFacturaComponent } from "./crear-factura.component";
+import { CrearFacturaComponent } from './crear-factura.component';
 
 describe("CrearFacturaComponent", () => {
   let component: CrearFacturaComponent;
@@ -26,7 +26,7 @@ describe("CrearFacturaComponent", () => {
     fixture.detectChanges();
   });
 
-  it("Debe crearse el componente", () => {
+  it('Debe crearse el componente', () => {
     expect(component).toBeTruthy();
   });
 
