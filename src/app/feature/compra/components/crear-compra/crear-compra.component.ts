@@ -52,6 +52,6 @@ export class CrearCompraComponent implements OnInit {
   private construirFormularioCompra() {
     this.compraForm = new FormGroup({
       cantidad: new FormControl(Validators.min(CANTIDAD_MINIMA_COMPRA))
-    })
+    });
   }
 }
