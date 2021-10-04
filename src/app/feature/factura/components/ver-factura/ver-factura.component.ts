@@ -12,14 +12,12 @@ export class VerFacturaComponent implements OnInit {
   constructor(protected facturaService: FacturaService) { }
 
   ngOnInit() {
-    let x = localStorage.getItem("facturaId");
+    let x = localStorage.getItem('facturaId');
     let facturaId = +x;
 
     this.facturaService.consultarById(facturaId).subscribe(
-      (data) => {
-        this.factura = data;
-        console.log(this.factura);
-        
+      data => {
+        this.factura = data;        
       }
     );
   }
