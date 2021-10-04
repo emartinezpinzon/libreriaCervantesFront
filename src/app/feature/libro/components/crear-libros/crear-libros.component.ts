@@ -13,8 +13,7 @@ const REGISTRO_EXITOSO = "El libro ha sido registrado con exito";
 
 @Component({
   selector: "app-crear-libros",
-  templateUrl: "./crear-libros.component.html",
-  styleUrls: ["./crear-libros.component.css"],
+  templateUrl: "./crear-libros.component.html"
 })
 export class CrearLibrosComponent implements OnInit {
   libroForm: FormGroup;

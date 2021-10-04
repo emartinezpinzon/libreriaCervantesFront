@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-libro',
-  templateUrl: './libro.component.html',
-  styleUrls: ['./libro.component.css']
+  templateUrl: './libro.component.html'
 })
 export class LibroComponent implements OnInit {
 
