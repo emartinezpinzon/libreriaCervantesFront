@@ -8,7 +8,7 @@ import { FacturaService } from '@factura/shared/service/factura.service';
   styleUrls: ['./ver-factura.component.css']
 })
 export class VerFacturaComponent implements OnInit {
-  factura = {} as Factura;
+  public factura = {} as Factura;
 
   constructor(protected facturaService: FacturaService) { }
 
