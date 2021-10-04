@@ -4,7 +4,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
-//import { Libro } from '@libro/shared/model/libro';
 import { LibroService } from '@libro/shared/service/libro.service';
 
 import { CrearLibrosComponent } from './crear-libros.component';
@@ -12,8 +11,6 @@ import { CrearLibrosComponent } from './crear-libros.component';
 describe('CrearLibrosComponent', () => {
   let component: CrearLibrosComponent;
   let fixture: ComponentFixture<CrearLibrosComponent>;
-
-  let libroService: LibroService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -34,7 +31,6 @@ describe('CrearLibrosComponent', () => {
     fixture = TestBed.createComponent(CrearLibrosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    libroService = TestBed.inject(LibroService);
   });
 
   it('Debe crearse el componente', () => {
