@@ -8,8 +8,9 @@ export class LibroPage {
     private inputDisponibles = element(by.id('disponibles'));
     private inputPrecio = element(by.id('precio'));
     private linkAgregarLibro = element(by.id('guardar'));
-    //private inputCantidad = element(by.id('idProducto'));;
-    //private linkAgregarCompra = element(by.id('linkListarProducto'));
+    private libros = element.all(by.id('tarjeta-libro'));
+    private inputCantidad = element(by.id('cantidad'));;
+    private linkAgregarCompra = element(by.id('agregar_compra'));
 
     async clickBotonCrearLibro() {
         await this.linkCrearLibro.click();
@@ -37,5 +38,17 @@ export class LibroPage {
 
     async clickBotonGuardarNuevoLibro() {
         await this.linkAgregarLibro.click();
+    }
+
+    async ingresarCantidad(cantidad: number) {
+        await this.inputCantidad.sendKeys(cantidad);
+    }
+
+    async clickBotonGuardarNuevaCompra() {
+        await this.linkAgregarCompra.click();
+    }
+
+    async contarLibrosRegistrados() {
+        return (await this.libros).length;
     }
 }
