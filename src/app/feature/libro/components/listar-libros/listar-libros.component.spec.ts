@@ -15,8 +15,8 @@ describe('ListarLibrosComponent', () => {
   
   let libroServicioStub: Partial<LibroService>;
   let dummyLibros: Libro[] = [
-    new Libro(1, "Ficciones", "Literatura", "Nacional", 3, 10),
-    new Libro(2, "Mujercitas", "Literatura", "Internacional", 5, 15)
+    new Libro({id: 1, titulo: "Ficciones", categoria: "Literatura", distribucion: "Nacional", disponibles: 3, precio: 10}),
+    new Libro({id: 2, titulo: "Mujercitas", categoria: "Literatura", distribucion: "Internacional", disponibles: 5, precio: 15})
   ];
 
   libroServicioStub = {
@@ -49,7 +49,7 @@ describe('ListarLibrosComponent', () => {
   });
 
   it('Debe listar los libros registrados', () => {
-    component.ngOnInit;
+    component.ngOnInit();
 
     component.listaLibros.subscribe(respuesta => {
       expect(respuesta).toEqual(dummyLibros);
