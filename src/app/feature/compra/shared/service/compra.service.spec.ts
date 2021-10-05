@@ -1,15 +1,15 @@
-import { HttpResponse } from '@angular/common/http';
+import { HttpResponse } from "@angular/common/http";
 import {
   HttpClientTestingModule,
   HttpTestingController,
-} from '@angular/common/http/testing';
-import { TestBed } from '@angular/core/testing';
-import { HttpService } from '@core/services/http.service';
-import { environment } from 'src/environments/environment';
-import { Compra } from '../model/compra';
-import { CompraService } from './compra.service';
+} from "@angular/common/http/testing";
+import { TestBed } from "@angular/core/testing";
+import { HttpService } from "@core/services/http.service";
+import { environment } from "src/environments/environment";
+import { Compra } from "../model/compra";
+import { CompraService } from "./compra.service";
 
-describe('CompraService', () => {
+describe("CompraService", () => {
   let compraServicio: CompraService;
   let compraServicioMock: HttpTestingController;
 
@@ -22,22 +22,22 @@ describe('CompraService', () => {
     compraServicio = TestBed.inject(CompraService);
   });
 
-  it('Debe crear el servicio', () => {
+  it("Debe crear el servicio", () => {
     expect(compraServicio).toBeTruthy();
   });
 
-  it('Debe crear una compra', () => {
-    let dummyCompra: Compra = new Compra(
-      1,
-      1,
-      3,
-      "2021-10-07",
-      "Ficciones",
-      "Literatura",
-      "Nacional",
-      2,
-      10000
-    );
+  it("Debe crear una compra", () => {
+    let dummyCompra: Compra = new Compra({
+      id: 1,
+      libroId: 1,
+      cantidad: 3,
+      fechaEntrega: "2021-10-07",
+      titulo: "Ficciones",
+      categoria: "Literatura",
+      distribucion: "Nacional",
+      disponibles: 2,
+      precio: 10000,
+    });
 
     compraServicio.guardar(dummyCompra).subscribe((respuesta) => {
       expect(respuesta).toEqual(true);
@@ -50,30 +50,30 @@ describe('CompraService', () => {
     request.event(new HttpResponse<boolean>({ body: true }));
   });
 
-  it('Debe consultar las compras registradas', () => {
+  it("Debe consultar las compras registradas", () => {
     let dummyCompras: Compra[] = [
-      new Compra(
-        1,
-        1,
-        3,
-        "2021-10-07",
-        "Ficciones",
-        "Literatura",
-        "Nacional",
-        2,
-        10000
-      ),
-      new Compra(
-        2,
-        2,
-        3,
-        "2021-10-07",
-        "Cantar de ciegos",
-        "Literatura",
-        "Internacional",
-        2,
-        10000
-      ),
+      new Compra({
+        id: 1,
+        libroId: 1,
+        cantidad: 3,
+        fechaEntrega: "2021-10-07",
+        titulo: "Ficciones",
+        categoria: "Literatura",
+        distribucion: "Nacional",
+        disponibles: 2,
+        precio: 10000,
+      }),
+      new Compra({
+        id: 1,
+        libroId: 1,
+        cantidad: 3,
+        fechaEntrega: "2021-10-07",
+        titulo: "Claraboya",
+        categoria: "Literatura",
+        distribucion: "Nacional",
+        disponibles: 2,
+        precio: 10000,
+      }),
     ];
     let cantidadCompras = dummyCompras.length;
 
