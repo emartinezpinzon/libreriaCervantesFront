@@ -4,12 +4,12 @@ import {
   HttpTestingController,
 } from "@angular/common/http/testing";
 import { TestBed } from "@angular/core/testing";
-import { HttpService } from "@core/services/http.service";
-import { environment } from "src/environments/environment";
-import { Compra } from "../model/compra";
-import { CompraService } from "./compra.service";
+import { HttpService } from '@core/services/http.service';
+import { environment } from 'src/environments/environment';
+import { Compra } from '../model/compra';
+import { CompraService } from './compra.service';
 
-describe("CompraService", () => {
+describe('CompraService', () => {
   let compraServicio: CompraService;
   let compraServicioMock: HttpTestingController;
 
@@ -22,11 +22,11 @@ describe("CompraService", () => {
     compraServicio = TestBed.inject(CompraService);
   });
 
-  it("Debe crear el servicio", () => {
+  it('Debe crear el servicio', () => {
     expect(compraServicio).toBeTruthy();
   });
 
-  it("Debe crear una compra", () => {
+  it('Debe crear una compra', () => {
     let dummyCompra: Compra = new Compra({
       id: 1,
       libroId: 1,
@@ -39,18 +39,18 @@ describe("CompraService", () => {
       precio: 10000,
     });
 
-    compraServicio.guardar(dummyCompra).subscribe((respuesta) => {
+    compraServicio.guardar(dummyCompra).subscribe(respuesta => {
       expect(respuesta).toEqual(true);
     });
 
     const request = compraServicioMock.expectOne(
       `${environment.endpoint}/compra`
     );
-    expect(request.request.method).toBe("POST");
+    expect(request.request.method).toBe('POST');
     request.event(new HttpResponse<boolean>({ body: true }));
   });
 
-  it("Debe consultar las compras registradas", () => {
+  it('Debe consultar las compras registradas', () => {
     let dummyCompras: Compra[] = [
       new Compra({
         id: 1,
@@ -77,7 +77,7 @@ describe("CompraService", () => {
     ];
     let cantidadCompras = dummyCompras.length;
 
-    compraServicio.consultar().subscribe((compras) => {
+    compraServicio.consultar().subscribe(compras => {
       expect(compras.length).toBe(cantidadCompras);
       expect(compras).toEqual(dummyCompras);
     });
@@ -85,7 +85,7 @@ describe("CompraService", () => {
     const request = compraServicioMock.expectOne(
       `${environment.endpoint}/compra`
     );
-    expect(request.request.method).toBe("GET");
+    expect(request.request.method).toBe('GET');
     request.flush(dummyCompras);
   });
 });

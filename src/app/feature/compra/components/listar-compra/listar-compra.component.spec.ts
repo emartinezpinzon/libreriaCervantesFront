@@ -1,14 +1,14 @@
-import { CommonModule } from "@angular/common";
-import { HttpClientTestingModule } from "@angular/common/http/testing";
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { RouterTestingModule } from "@angular/router/testing";
-import { Compra } from "@compra/shared/model/compra";
-import { CompraService } from "@compra/shared/service/compra.service";
-import { of } from "rxjs";
-import { HttpService } from "@core/services/http.service";
-import { ListarCompraComponent } from "./listar-compra.component";
+import { CommonModule } from '@angular/common';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Compra } from '@compra/shared/model/compra';
+import { CompraService } from '@compra/shared/service/compra.service';
+import { of } from 'rxjs';
+import { HttpService } from '@core/services/http.service';
+import { ListarCompraComponent } from './listar-compra.component';
 
-describe("ListarCompraComponent", () => {
+describe('ListarCompraComponent', () => {
   let component: ListarCompraComponent;
   let fixture: ComponentFixture<ListarCompraComponent>;
 
