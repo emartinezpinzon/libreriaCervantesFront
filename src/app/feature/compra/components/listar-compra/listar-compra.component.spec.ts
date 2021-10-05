@@ -68,7 +68,7 @@ describe('ListarCompraComponent', () => {
   });
 
   it('Debe listar las compras registradas', () => {
-    component.ngOnInit;
+    component.ngOnInit();
 
     component.listaCompra.subscribe(respuesta => {
       expect(respuesta).toEqual(dummyCompras);
