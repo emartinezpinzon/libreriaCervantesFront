@@ -9,6 +9,8 @@ export class Compra {
   disponibles: number;
   precio: number;
 
+//Change
+
   constructor(
     id: number,
     libroId: number,
