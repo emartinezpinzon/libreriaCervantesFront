@@ -2,14 +2,15 @@
   <div class="input-group mb-3">
     <input
       validar
+      id="cantidad"
       type="number"
       class="form-control"
       placeholder="Cantidad"
       formControlName="cantidad"
       aria-label="Recipient's username"
-      aria-describedby="compra"
+      aria-describedby="agregar_compra"
     />
-    <button id="compra" [disabled]="!registrarForm.form.valid" class="btn btn-secondary" type="button" (click)="onSubmit()">
+    <button id="agregar_compra" [disabled]="!registrarForm.form.valid" class="btn btn-secondary" type="button" (click)="onSubmit()">
       Añadir
     </button>
   </div>
