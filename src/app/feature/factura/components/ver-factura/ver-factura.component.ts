@@ -1,21 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Factura } from '@factura/shared/model/factura';
 import { FacturaService } from '@factura/shared/service/factura.service';
+
 
 @Component({
   selector: 'app-ver-factura',
   templateUrl: './ver-factura.component.html'
 })
 export class VerFacturaComponent implements OnInit {
+  facturaID: number;
   public factura = {} as Factura;
 
-  constructor(protected facturaService: FacturaService) { }
+  constructor(protected facturaService: FacturaService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    let x = localStorage.getItem('facturaId');
-    let facturaId = +x;
+    this.facturaID = parseInt(this.route.snapshot.paramMap.get('id'), 10);
 
-    this.facturaService.consultarById(facturaId).subscribe(
+    this.facturaService.consultarById(this.facturaID).subscribe(
       data => {
         this.factura = data;        
       }
