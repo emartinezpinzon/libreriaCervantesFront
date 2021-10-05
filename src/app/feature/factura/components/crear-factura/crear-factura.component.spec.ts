@@ -8,7 +8,7 @@ import { FacturaService } from '@factura/shared/service/factura.service';
 
 import { CrearFacturaComponent } from './crear-factura.component';
 
-describe("CrearFacturaComponent", () => {
+describe('CrearFacturaComponent', () => {
   let component: CrearFacturaComponent;
   let fixture: ComponentFixture<CrearFacturaComponent>;
 

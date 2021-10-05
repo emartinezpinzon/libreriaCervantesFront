@@ -1,14 +1,14 @@
 /* tslint:disable:no-unused-variable */
-import { CommonModule } from "@angular/common";
-import { HttpClientModule } from "@angular/common/http";
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { RouterTestingModule } from "@angular/router/testing";
-import { CompraService } from "@compra/shared/service/compra.service";
-import { HttpService } from "@core/services/http.service";
-import { CrearCompraComponent } from "./crear-compra.component";
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { CompraService } from '@compra/shared/service/compra.service';
+import { HttpService } from '@core/services/http.service';
+import { CrearCompraComponent } from './crear-compra.component';
 
-describe("CrearCompraComponent", () => {
+describe('CrearCompraComponent', () => {
   let component: CrearCompraComponent;
   let fixture: ComponentFixture<CrearCompraComponent>;
 
@@ -32,7 +32,7 @@ describe("CrearCompraComponent", () => {
     fixture.detectChanges();
   });
 
-  it("Debe crearse el componente", () => {
+  it('Debe crearse el componente', () => {
     expect(component).toBeTruthy();
   });
 

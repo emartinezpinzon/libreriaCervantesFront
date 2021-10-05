@@ -27,14 +27,14 @@ describe("LibroService", () => {
   });
 
   it("Debe crear un libro", () => {
-    let dummyLibro: Libro = new Libro(
-      1,
-      "Ficciones",
-      "Literatura",
-      "Nacional",
-      3,
-      10
-    );
+    let dummyLibro: Libro = new Libro({
+      id: 1,
+      titulo: "Ficciones",
+      categoria: "Literatura",
+      distribucion: "Nacional",
+      disponibles: 3,
+      precio: 10,
+    });
 
     libroServicio.guardar(dummyLibro).subscribe((respuesta) => {
       expect(respuesta).toEqual(true);
@@ -49,11 +49,18 @@ describe("LibroService", () => {
 
   it("Debe consultar los libros creados", () => {
     let dummyLibros: Libro[] = [
-      new Libro(1, "Ficciones", "Literatura", "Nacional", 3, 10),
+      new Libro({
+        id: 1,
+        titulo: "Ficciones",
+        categoria: "Literatura",
+        distribucion: "Nacional",
+        disponibles: 3,
+        precio: 10,
+      }),
     ];
     let cantidadLibros = dummyLibros.length;
 
-    libroServicio.consultar().subscribe(libros => {
+    libroServicio.consultar().subscribe((libros) => {
       expect(libros.length).toBe(cantidadLibros);
       expect(libros).toEqual(dummyLibros);
     });

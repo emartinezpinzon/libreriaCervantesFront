@@ -1,46 +1,46 @@
-import { CommonModule } from "@angular/common";
-import { HttpClientTestingModule } from "@angular/common/http/testing";
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { RouterTestingModule } from "@angular/router/testing";
-import { Compra } from "@compra/shared/model/compra";
-import { CompraService } from "@compra/shared/service/compra.service";
-import { of } from "rxjs";
-import { HttpService } from "@core/services/http.service";
-import { ListarCompraComponent } from "./listar-compra.component";
+import { CommonModule } from '@angular/common';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Compra } from '@compra/shared/model/compra';
+import { CompraService } from '@compra/shared/service/compra.service';
+import { of } from 'rxjs';
+import { HttpService } from '@core/services/http.service';
+import { ListarCompraComponent } from './listar-compra.component';
 
-describe("ListarCompraComponent", () => {
+describe('ListarCompraComponent', () => {
   let component: ListarCompraComponent;
   let fixture: ComponentFixture<ListarCompraComponent>;
 
   let compraServicioStub: Partial<CompraService>;
-  let dummyCompra: Compra[] = [
-    new Compra(
-      1,
-      1,
-      3,
-      "2021-10-07",
-      "Ficciones",
-      "Literatura",
-      "Nacional",
-      2,
-      10000
-    ),
-    new Compra(
-      2,
-      2,
-      3,
-      "2021-10-07",
-      "Cantar de ciegos",
-      "Literatura",
-      "Internacional",
-      2,
-      10000
-    ),
+  let dummyCompras: Compra[] = [
+    new Compra({
+      id: 1,
+      libroId: 1,
+      cantidad: 3,
+      fechaEntrega: "2021-10-07",
+      titulo: "Ficciones",
+      categoria: "Literatura",
+      distribucion: "Nacional",
+      disponibles: 2,
+      precio: 10000,
+    }),
+    new Compra({
+      id: 1,
+      libroId: 1,
+      cantidad: 3,
+      fechaEntrega: "2021-10-07",
+      titulo: "Claraboya",
+      categoria: "Literatura",
+      distribucion: "Nacional",
+      disponibles: 2,
+      precio: 10000,
+    }),
   ];
 
   compraServicioStub = {
     consultar: () => {
-      return of(dummyCompra);
+      return of(dummyCompras);
     },
   };
 
@@ -71,12 +71,12 @@ describe("ListarCompraComponent", () => {
     component.ngOnInit;
 
     component.listaCompra.subscribe(respuesta => {
-      expect(respuesta).toEqual(dummyCompra);
+      expect(respuesta).toEqual(dummyCompras);
     })
   });
 
   it('Debe mostrar alerta sin compras registradas', () => {
-    dummyCompra = [];
+    dummyCompras = [];
     component.ngOnInit();
     fixture.detectChanges();
     const MSG = fixture.nativeElement.querySelector('#vacio');
