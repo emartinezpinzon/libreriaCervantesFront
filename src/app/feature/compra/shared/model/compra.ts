@@ -1,4 +1,4 @@
-import { ICompra } from "./compra.interface";
+import { ICompra } from './compra.interface';
 
 export class Compra {
   id: number;
